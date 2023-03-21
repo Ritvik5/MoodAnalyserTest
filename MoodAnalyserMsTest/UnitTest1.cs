@@ -8,8 +8,8 @@ namespace MoodAnalyserMsTest
         [TestMethod]
         public void GivenSadMoodShouldReturnSad()
         {
-            string expected = "SAD";
-            string message = "I am in Sad Mood";
+            string expected = "HAPPY";
+            string message = "I am in Any Mood";
             MoodAnalyse moodAnalyse = new MoodAnalyse(message);
 
 
