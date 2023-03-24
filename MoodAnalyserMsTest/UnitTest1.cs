@@ -6,18 +6,18 @@ namespace MoodAnalyserMsTest
     public class UnitTest1
     {
         [TestMethod]
-        [DataRow(null)]
-        public void GivenSadMoodShouldReturnSad(string message)
+        public void GivenEmptyMoodShouldThrowException()
         {
-            //Arrange
-            string expected = "HAPPY";
-            MoodAnalyse moodAnalyse = new MoodAnalyse(message);
-
-            //Act
-            string mood = moodAnalyse.AnalyseMood();
-
-            //Assert
-            Assert.AreEqual(expected, mood);
+            try
+            {
+                string message = "";
+                MoodAnalyse moodAnalyse = new MoodAnalyse(message);
+                string mood = moodAnalyse.AnalyseMood();    
+            }
+            catch(MoodAnalyserCustomException e)
+            {
+                Assert.AreEqual("Mood should not be empty", e.Message);
+            }
         }
     }
 }
